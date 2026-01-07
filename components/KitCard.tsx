@@ -6,52 +6,56 @@ interface KitCardProps {
 }
 
 const KitCard: React.FC<KitCardProps> = ({ kit }) => {
-  return (
-    <div className="card-dark p-8 group flex flex-col h-full relative overflow-hidden">
-      {/* Dynamic Background Glow */}
-      <div className={`absolute -top-20 -right-20 w-40 h-40 bg-green-500/10 blur-[80px] rounded-full group-hover:bg-green-500/20 transition-all duration-700`}></div>
+  // Mantenemos isUpcoming en true para conservar el estado de "Próximamente" solicitado anteriormente.
+  const isUpcoming = true;
 
-      {/* Image Showcase */}
-      <div className="relative aspect-square w-full rounded-[1.5rem] overflow-hidden mb-10 bg-black/50 flex items-center justify-center border border-white/5 group-hover:border-green-500/20 transition-colors">
+  return (
+    <div className={`bg-[#0a0a0a] p-6 md:p-8 rounded-[2rem] border-4 ${isUpcoming ? 'border-green-500/30' : 'border-white/5'} hover:border-green-500 shadow-2xl transition-all duration-500 flex flex-col items-center group overflow-hidden relative h-full`}>
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+
+      {/* Main Image Container */}
+      <div className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-white/5 mb-8 bg-black/40">
         <img 
             src={kit.image} 
             alt={kit.name} 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 pixelated"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] pixelated"
             onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/111/22c55e?text=' + kit.name;
+                (e.target as HTMLImageElement).src = 'https://placehold.co/600x600/111/22c55e?text=' + kit.name;
             }}
         />
+        {/* Etiqueta superior verde con el precio exacto */}
+        <div className="absolute top-4 right-4 bg-green-600 text-white font-bold px-4 py-2 rounded-lg shadow-lg z-20 font-minecraft text-[10px] uppercase">
+          {kit.price}€
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-        
-        {/* Hover Accent Line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-500/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
       </div>
 
-      <div className="flex flex-col flex-grow">
-        <div className="flex justify-between items-end mb-10">
-            <div>
-              <p className="text-green-500 text-xs font-bold uppercase tracking-[0.3em] mb-1">Kit Especial</p>
-              <h3 className="text-2xl font-minecraft font-bold text-white uppercase tracking-tight leading-tight">{kit.name}</h3>
-            </div>
-            <div className="flex flex-col items-end">
-                <span className="text-3xl font-black text-green-400 leading-none">{kit.price}€</span>
-                <span className="text-[11px] text-gray-500 uppercase font-extrabold tracking-widest mt-1">EUR</span>
-            </div>
+      {/* Content Block */}
+      <div className="text-center relative z-10 w-full flex flex-col flex-grow">
+        <h3 className="text-2xl font-epic-title text-white mb-4 uppercase tracking-wider">{kit.name}</h3>
+        
+        <div className="flex-grow flex flex-col items-center justify-between py-4">
+          <span className="text-2xl md:text-3xl font-pixel text-green-500/60 animate-pulse uppercase tracking-[0.2em] mb-8">
+            Próximamente
+          </span>
+          
+          {/* Botón de acción refinado: Se mejoró el estado deshabilitado (No disponible) */}
+          <button 
+            disabled={isUpcoming}
+            className={`
+              w-full py-4 rounded-xl font-minecraft text-[11px] uppercase tracking-widest font-bold transition-all duration-75 relative outline-none
+              ${isUpcoming 
+                ? 'bg-[#121212] border border-green-900/20 text-green-900/60 cursor-not-allowed shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)] opacity-90' 
+                : 'bg-gradient-to-b from-[#55ff55] via-[#22c55e] to-[#15803d] text-white shadow-[0_8px_0_#052e16] hover:brightness-110 hover:-translate-y-0.5 active:translate-y-[6px] active:shadow-[0_2px_0_#052e16]'
+              }
+            `}
+          >
+            <span className={`relative z-10 ${!isUpcoming ? 'drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]' : ''}`}>
+              {isUpcoming ? 'No disponible' : 'Comprar ahora'}
+            </span>
+          </button>
         </div>
-
-        {/* Reemplazo de descripción por Próximamente */}
-        <div className="flex-grow flex items-center justify-center py-8 mb-10 border-2 border-dashed border-white/5 rounded-2xl bg-black/20">
-          <p className="text-2xl md:text-3xl font-epic-title text-green-500/50 animate-pulse tracking-widest">
-            PRÓXIMAMENTE
-          </p>
-        </div>
-
-        <button
-          disabled
-          className="w-full py-5 text-center text-sm uppercase tracking-[0.25em] font-black bg-white/5 text-gray-500 rounded-xl cursor-not-allowed border border-white/5"
-        >
-          No disponible
-        </button>
       </div>
     </div>
   );

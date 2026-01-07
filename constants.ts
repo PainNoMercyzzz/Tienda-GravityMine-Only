@@ -1,4 +1,3 @@
-
 import { Kit, Rule } from './types';
 
 export const KITS: Kit[] = [
@@ -6,28 +5,28 @@ export const KITS: Kit[] = [
     id: 'mistico',
     name: 'Kit Místico',
     price: 8,
-    description: 'Espada encantada púrpura, armadura básica, pociones y más recursos útiles.',
-    link: 'https://paypal.me/GravityMine/8EUR',
-    color: 'border-purple-500',
-    image: 'https://images.craiyon.com/2023-11-20/HqC6gY6YSnS-FRuyHsEw.webp'
-  },
-  {
-    id: 'arcano',
-    name: 'Kit Arcano',
-    price: 12,
-    description: 'Espada arcana poderosa, armadura media, tótem de inmortalidad y efectos mágicos.',
-    link: 'https://paypal.me/GravityMine/12EUR',
-    color: 'border-blue-500',
-    image: 'https://cdn.discordapp.com/attachments/778272600891588650/1458272696885579807/kit_arcano.jpeg?ex=695f09c8&is=695db848&hm=44fa6b0bb881a9693e77e69e94cb024c2bbea14a6140e214242aa0da0e653cff&'
+    description: 'Próximamente',
+    link: '#',
+    color: 'border-green-500',
+    image: 'https://cdn.discordapp.com/attachments/778272600891588650/1458272697212473568/kit_mistico.jpeg?ex=695f09c8&is=695db848&hm=5a453bba41cbe6ca0a09c81da9347216e03eea99f581c4c1e9e2b7e413b351b0'
   },
   {
     id: 'deidad',
     name: 'Kit Deidad',
     price: 15,
-    description: 'Espada divina, armadura completa de netherite, elytra, shulker box y todo lo épico.',
-    link: 'https://paypal.me/GravityMine/15EUR',
-    color: 'border-yellow-500',
-    image: 'https://images.craiyon.com/2023-11-20/TQwLGV13SNC28-FRuyHsEw.webp'
+    description: 'Próximamente',
+    link: '#',
+    color: 'border-green-500',
+    image: 'https://cdn.discordapp.com/attachments/778272600891588650/1458272697653133363/kit_deidad.jpeg?ex=695f09c8&is=695db848&hm=db702ced31dcb3b92d1b384e548f2b83fb260a539851aadc8c53bc781c9d7c7a'
+  },
+  {
+    id: 'arcano',
+    name: 'Kit Arcano',
+    price: 12,
+    description: 'Próximamente',
+    link: '#',
+    color: 'border-green-500',
+    image: 'https://cdn.discordapp.com/attachments/778272600891588650/1458272696885579807/kit_arcano.jpeg?ex=695f09c8&is=695db848&hm=44fa6b0bb881a9693e77e69e94cb024c2bbea14a6140e214242aa0da0e653cff'
   }
 ];
 
