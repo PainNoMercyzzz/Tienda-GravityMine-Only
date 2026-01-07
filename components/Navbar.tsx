@@ -40,12 +40,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
           className="flex items-center cursor-pointer group"
           onClick={() => handleNavigation(Page.HOME)}
         >
-          <div className="relative w-11 h-11 bg-green-600 rounded-xl mr-4 flex items-center justify-center shadow-xl group-hover:rotate-6 transition-transform">
-              <span className="text-white font-pixel text-2xl font-bold">G</span>
-              <div className="absolute inset-0 bg-green-400 opacity-20 blur-lg group-hover:opacity-40 transition-opacity"></div>
+          <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform">
+              <span className="text-white font-minecraft text-xl font-bold">G</span>
           </div>
-          <span className="text-2xl md:text-4xl font-pixel font-bold tracking-widest text-white group-hover:text-green-400 transition-colors drop-shadow-md">
-            GRAVITY<span className="text-green-500">MINE</span>
+          <span className="text-2xl font-minecraft font-bold tracking-tight text-white ml-3 group-hover:text-green-400 transition-colors">
+            Gravity<span className="text-green-500">Mine</span>
           </span>
         </div>
 

@@ -9,7 +9,7 @@ export const KITS: Kit[] = [
     description: 'Espada encantada púrpura, armadura básica, pociones y más recursos útiles.',
     link: 'https://paypal.me/GravityMine/8EUR',
     color: 'border-purple-500',
-    image: 'images/kit-mistico.png'
+    image: 'https://images.craiyon.com/2023-11-20/HqC6gY6YSnS-FRuyHsEw.webp'
   },
   {
     id: 'arcano',
@@ -18,7 +18,7 @@ export const KITS: Kit[] = [
     description: 'Espada arcana poderosa, armadura media, tótem de inmortalidad y efectos mágicos.',
     link: 'https://paypal.me/GravityMine/12EUR',
     color: 'border-blue-500',
-    image: 'images/kit-arcano.png'
+    image: 'https://cdn.discordapp.com/attachments/778272600891588650/1458272696885579807/kit_arcano.jpeg?ex=695f09c8&is=695db848&hm=44fa6b0bb881a9693e77e69e94cb024c2bbea14a6140e214242aa0da0e653cff&'
   },
   {
     id: 'deidad',
@@ -27,7 +27,7 @@ export const KITS: Kit[] = [
     description: 'Espada divina, armadura completa de netherite, elytra, shulker box y todo lo épico.',
     link: 'https://paypal.me/GravityMine/15EUR',
     color: 'border-yellow-500',
-    image: 'images/kit-deidad.png'
+    image: 'https://images.craiyon.com/2023-11-20/TQwLGV13SNC28-FRuyHsEw.webp'
   }
 ];
 

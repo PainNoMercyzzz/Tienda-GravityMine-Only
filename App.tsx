@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Page } from './types';
 import { KITS, RULES, DISCORD_LINK, OWNER_NICK } from './constants';
 import Navbar from './components/Navbar';
@@ -7,6 +7,31 @@ import KitCard from './components/KitCard';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.HOME);
+
+  useEffect(() => {
+    // Log de depuración para producción
+    console.log('App loaded - API Key exists:', !!process.env.API_KEY);
+  }, []);
+
+  // Validación de seguridad para evitar fallos silenciosos en Vercel
+  if (!process.env.API_KEY) {
+    return (
+      <div className="min-h-screen bg-[#080808] flex items-center justify-center p-10 text-center">
+        <div className="max-w-md p-8 bg-red-900/20 border border-red-500/50 rounded-3xl">
+          <h2 className="text-2xl font-bold text-red-500 mb-4 uppercase">Error de Configuración</h2>
+          <p className="text-gray-300 mb-6">
+            La variable de entorno <strong>API_KEY</strong> no está configurada en Vercel.
+          </p>
+          <div className="text-left text-sm text-gray-400 bg-black/50 p-4 rounded-xl font-mono">
+            1. Ve a Vercel Settings<br/>
+            2. Environment Variables<br/>
+            3. Añade API_KEY<br/>
+            4. Redeploy
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const Hero = ({ title, subtitle, showButton = false }: { title: string, subtitle: string, showButton?: boolean }) => (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -22,10 +47,11 @@ const App: React.FC = () => {
 
         {/* Content Layer */}
         <div className="relative z-10 text-center px-6 animate-fade-in-up max-w-5xl flex flex-col items-center">
-            <h1 className="text-5xl md:text-8xl font-pixel font-bold text-white mb-6 leading-tight tracking-widest uppercase text-glow-green drop-shadow-2xl">
+            {/* Título Principal ajustado de tamaño */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-minecraft font-bold mb-8 text-white drop-shadow-[0_6px_0_rgba(21,128,61,0.8)]">
                 {title}
             </h1>
-            <p className="text-base md:text-xl text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed mb-12 tracking-wide">
+            <p className="text-base md:text-xl text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed mb-12 tracking-wide drop-shadow-xl">
                 {subtitle}
             </p>
             {showButton && (
@@ -57,7 +83,7 @@ const App: React.FC = () => {
           <>
             <Hero 
                 title="GravityMine" 
-                subtitle="El Realm modificado definitivo para Minecraft Bedrock. Vive una experiencia única con mods exclusivos, texturas personalizadas, nuevos mobs y biomas que desafían los límites." 
+                subtitle="El Realm modificado definitivo para Minecraft Bedrock. Vive una experiencia única con mods exclusivos, texturas personalizadas y biomas épicos." 
                 showButton={true}
             />
             <section className="max-w-7xl mx-auto py-32 px-6">
@@ -67,8 +93,8 @@ const App: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {[
-                      { icon: '🧩', title: 'Addons & Mods', desc: 'Sistemas de maquinaria, nuevos crafteos y herramientas épicas que transforman totalmente la jugabilidad clásica.' },
-                      { icon: '🖌️', title: 'Texturas HD', desc: 'Paquetes de texturas integrados que mejoran el apartado visual y añaden detalles increíbles a cada bloque.' },
+                      { icon: '🧩', title: 'Addons & Mods', desc: 'Sistemas de maquinaria y nuevos crafteos que transforman totalmente la jugabilidad clásica.' },
+                      { icon: '🖌️', title: 'Texturas HD', desc: 'Paquetes de texturas integrados que mejoran el apartado visual y añaden detalles increíbles.' },
                       { icon: '🐉', title: 'Contenido Único', desc: 'Enfréntate a jefes personalizados, explora dimensiones alteradas y descubre tesoros legendarios.' }
                     ].map((feature, i) => (
                       <div key={i} className="p-10 rounded-[2rem] bg-white/[0.02] border border-white/5 text-center hover:bg-white/[0.05] transition-all group">
@@ -100,7 +126,7 @@ const App: React.FC = () => {
                         <div className="bg-black/60 p-8 rounded-3xl border border-white/5">
                             <p className="text-green-500 font-bold mb-4 uppercase tracking-widest text-xs">Código de Invitación</p>
                             <div className="flex flex-col gap-4">
-                                <span className="text-2xl md:text-4xl font-mono text-white font-black tracking-widest bg-green-500/10 px-6 py-4 rounded-xl border border-green-500/20 text-center break-all">
+                                <span className="text-2xl md:text-4xl font-mono text-white font-black tracking-widest bg-green-500/10 px-6 py-4 rounded-xl border border-green-500/20 text-center break-all shadow-inner">
                                     [TU_CÓDIGO_REAL_AQUÍ]
                                 </span>
                             </div>
@@ -140,7 +166,7 @@ const App: React.FC = () => {
             <div className="text-center mb-24 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-7xl font-pixel font-bold text-white mb-6 uppercase text-glow-green">KITS EXCLUSIVOS</h2>
               <div className="bg-green-500/5 p-6 rounded-[2rem] border border-green-500/10">
-                  <p className="text-lg text-green-300 font-medium tracking-wide">Precios en EUR. Tu apoyo ayuda a mantener el Realm activo y financia nuevos mods.</p>
+                  <p className="text-lg text-green-300 font-medium tracking-wide">Precios en EUR. Tu apoyo ayuda a mantener el Realm activo.</p>
               </div>
             </div>
 
@@ -226,9 +252,9 @@ const App: React.FC = () => {
             <div className="space-y-6 max-w-md">
                 <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center shadow-lg">
-                        <span className="text-white font-pixel text-xl">G</span>
+                        <span className="text-white font-minecraft font-bold text-lg">G</span>
                     </div>
-                    <span className="text-2xl font-pixel font-bold text-white tracking-widest uppercase">GRAVITYMINE</span>
+                    <span className="text-2xl font-minecraft font-bold text-white tracking-widest">GravityMine</span>
                 </div>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">
                     Realm modificado para Minecraft Bedrock. Innovando en cada bioma desde 2026.

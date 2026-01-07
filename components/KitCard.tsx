@@ -17,7 +17,7 @@ const KitCard: React.FC<KitCardProps> = ({ kit }) => {
         <img 
             src={kit.image} 
             alt={kit.name} 
-            className="w-2/3 h-2/3 object-contain group-hover:scale-110 transition-transform duration-1000 pixelated"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 pixelated"
             onError={(e) => {
                 (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/111/22c55e?text=' + kit.name;
             }}
@@ -31,11 +31,11 @@ const KitCard: React.FC<KitCardProps> = ({ kit }) => {
       <div className="flex flex-col flex-grow">
         <div className="flex justify-between items-end mb-6">
             <div>
-              <p className="text-green-500 text-xs font-bold uppercase tracking-[0.3em] mb-1">Kit Premium</p>
-              <h3 className="text-3xl font-pixel font-bold text-white uppercase tracking-tight">{kit.name}</h3>
+              <p className="text-green-500 text-xs font-bold uppercase tracking-[0.3em] mb-1">Kit Especial</p>
+              <h3 className="text-2xl font-minecraft font-bold text-white uppercase tracking-tight leading-tight">{kit.name}</h3>
             </div>
             <div className="flex flex-col items-end">
-                <span className="text-4xl font-black text-green-400 leading-none">{kit.price}€</span>
+                <span className="text-3xl font-black text-green-400 leading-none">{kit.price}€</span>
                 <span className="text-[11px] text-gray-500 uppercase font-extrabold tracking-widest mt-1">EUR</span>
             </div>
         </div>
