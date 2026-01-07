@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GravityMine | Servidor Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mc-green: #22c55e;
+            --mc-green-glow: rgba(34, 197, 94, 0.4);
+            --mc-black: #080808;
+            --mc-surface: #121212;
+            --mc-border: rgba(255, 255, 255, 0.08);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--mc-black);
+            color: #f3f4f6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .font-pixel {
+            font-family: 'VT323', monospace;
+        }
+
+        /* Fixed background with low opacity grass pattern */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://wallpapers.com/images/hd/minecraft-grass-l917u49436zlm8py.jpg");
+            background-repeat: repeat;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(8, 8, 8, 0.75);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--mc-border);
+            transition: all 0.4s ease;
+        }
+
+        /* Professional Modern Button with Gradient */
+        .minecraft-btn-modern {
+            background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+            box-shadow: 0 4px 20px var(--mc-green-glow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .minecraft-btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
+            filter: brightness(1.1);
+        }
+
+        /* Premium Dark Card Style */
+        .card-dark {
+            background: var(--mc-surface);
+            border: 1px solid var(--mc-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2rem;
+        }
+
+        .card-dark:hover {
+            transform: translateY(-12px);
+            border-color: rgba(34, 197, 94, 0.4);
+            box-shadow: 0 30px 60px rgba(34, 197, 94, 0.15);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to bottom, 
+                rgba(8, 8, 8, 0.3) 0%, 
+                rgba(8, 8, 8, 0.6) 50%, 
+                rgba(8, 8, 8, 1) 100%
+            );
+        }
+
+        .text-glow-green {
+            text-shadow: 0 0 15px var(--mc-green-glow);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Optimized images for pixel art */
+        .pixelated {
+            image-rendering: pixelated;
+        }
+
+        /* Scrollbar customization */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--mc-black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 5px;
+            border: 2px solid var(--mc-black);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a3a3a;
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div id="root"></div>
+</body>
+</html>
