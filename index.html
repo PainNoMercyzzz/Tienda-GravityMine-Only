@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GravityMine | Servidor Oficial</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Silkscreen:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Pixelify+Sans:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=VT323&family=Silkscreen:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Pixelify+Sans:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         :root {
             --mc-green: #22c55e;
@@ -31,12 +31,10 @@
             font-family: 'Silkscreen', cursive;
         }
 
-        /* Clase para títulos épicos profesionales */
         .font-epic-title {
             font-family: 'Pixelify Sans', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            /* Sombra pixelada de profundidad */
             text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8), 
                          0 0 20px rgba(34, 197, 94, 0.2);
             line-height: 1.2;
@@ -80,45 +78,52 @@
             justify-content: center;
         }
 
-        .minecraft-btn-modern:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
-            filter: brightness(1.1);
+        /* Nieve Navideña Dinámica de Fondo (General) */
+        .snowflake {
+          color: #fff;
+          font-family: Arial, sans-serif;
+          position: fixed;
+          top: -10%;
+          z-index: 50;
+          user-select: none;
+          cursor: default;
+          animation-name: snowflakes-fall, snowflakes-shake;
+          animation-timing-function: linear, ease-in-out;
+          animation-iteration-count: infinite, infinite;
+          pointer-events: none;
+          filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
         }
 
-        .card-dark {
-            background: var(--mc-surface);
-            border: 1px solid var(--mc-border);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 2rem;
+        @keyframes snowflakes-fall {
+          0% { top: -10%; }
+          100% { top: 100%; }
         }
 
-        .card-dark:hover {
-            transform: translateY(-12px);
-            border-color: rgba(34, 197, 94, 0.4);
-            box-shadow: 0 30px 60px rgba(34, 197, 94, 0.15);
+        @keyframes snowflakes-shake {
+          0%, 100% { transform: translateX(0px); }
+          50% { transform: translateX(30px); }
         }
 
-        .hero-overlay {
-            background: linear-gradient(to bottom, 
-                rgba(8, 8, 8, 0.3) 0%, 
-                rgba(8, 8, 8, 0.6) 50%, 
-                rgba(8, 8, 8, 1) 100%
-            );
+        /* ANIMACIÓN DE NIEVE PARA TARJETAS */
+        .card-snow-flake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            top: -10px;
+            opacity: 0;
+            animation: card-snowfall linear infinite;
         }
 
-        .text-glow-green {
-            text-shadow: 0 0 15px var(--mc-green-glow);
+        @keyframes card-snowfall {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: var(--op); }
+            90% { opacity: var(--op); }
+            100% { transform: translateY(450px) translateX(var(--drift)); opacity: 0; }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        .snow-glow {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
         }
 
         .pixelated {
