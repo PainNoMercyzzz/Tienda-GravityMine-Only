@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Kit } from '../types';
 
@@ -29,7 +28,7 @@ const KitCard: React.FC<KitCardProps> = ({ kit }) => {
       </div>
 
       <div className="flex flex-col flex-grow">
-        <div className="flex justify-between items-end mb-6">
+        <div className="flex justify-between items-end mb-10">
             <div>
               <p className="text-green-500 text-xs font-bold uppercase tracking-[0.3em] mb-1">Kit Especial</p>
               <h3 className="text-2xl font-minecraft font-bold text-white uppercase tracking-tight leading-tight">{kit.name}</h3>
@@ -40,20 +39,19 @@ const KitCard: React.FC<KitCardProps> = ({ kit }) => {
             </div>
         </div>
 
-        <div className="bg-white/5 rounded-2xl p-5 mb-10 flex-grow">
-          <p className="text-gray-400 text-base leading-relaxed">
-            {kit.description}
+        {/* Reemplazo de descripción por Próximamente */}
+        <div className="flex-grow flex items-center justify-center py-8 mb-10 border-2 border-dashed border-white/5 rounded-2xl bg-black/20">
+          <p className="text-2xl md:text-3xl font-epic-title text-green-500/50 animate-pulse tracking-widest">
+            PRÓXIMAMENTE
           </p>
         </div>
 
-        <a
-          href={kit.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="minecraft-btn-modern w-full py-5 text-center text-sm uppercase tracking-[0.25em] font-black"
+        <button
+          disabled
+          className="w-full py-5 text-center text-sm uppercase tracking-[0.25em] font-black bg-white/5 text-gray-500 rounded-xl cursor-not-allowed border border-white/5"
         >
-          Adquirir Kit
-        </a>
+          No disponible
+        </button>
       </div>
     </div>
   );

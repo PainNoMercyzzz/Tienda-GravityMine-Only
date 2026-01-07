@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Page } from './types';
 import { KITS, RULES, DISCORD_LINK, OWNER_NICK } from './constants';
@@ -47,8 +46,8 @@ const App: React.FC = () => {
 
         {/* Content Layer */}
         <div className="relative z-10 text-center px-6 animate-fade-in-up max-w-5xl flex flex-col items-center">
-            {/* Título Principal ajustado de tamaño */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-minecraft font-bold mb-8 text-white drop-shadow-[0_6px_0_rgba(21,128,61,0.8)]">
+            {/* Título Principal actualizado con 'font-hero-title' (Pixelify Sans Epic) */}
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-hero-title mb-10 text-white uppercase py-4">
                 {title}
             </h1>
             <p className="text-base md:text-xl text-gray-300 max-w-2xl mx-auto font-normal leading-relaxed mb-12 tracking-wide drop-shadow-xl">
@@ -88,7 +87,7 @@ const App: React.FC = () => {
             />
             <section className="max-w-7xl mx-auto py-32 px-6">
                 <div className="text-center mb-20">
-                  <h2 className="text-3xl md:text-5xl font-pixel font-bold text-white mb-4 uppercase">Experiencia Modificada</h2>
+                  <h2 className="text-3xl md:text-5xl font-epic-title font-bold text-green-500 mb-4 py-4">Experiencia Modificada</h2>
                   <div className="w-16 h-1 bg-green-500 mx-auto rounded-full"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -113,47 +112,28 @@ const App: React.FC = () => {
       case Page.REALM:
         return (
           <div className="pt-40 pb-32 px-6 max-w-7xl mx-auto">
-             <div className="relative rounded-[3rem] overflow-hidden bg-[#0d0d0d] shadow-2xl p-10 md:p-20 border border-white/5">
+             <div className="relative rounded-[3rem] overflow-hidden bg-[#0d0d0d] shadow-2xl p-10 md:p-24 border border-white/5 flex flex-col items-center justify-center text-center">
                 <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px]"></div>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-                    <div className="space-y-8">
-                        <h2 className="text-4xl md:text-6xl font-pixel font-bold text-white mb-6 uppercase">Entra al Mundo</h2>
-                        <p className="text-lg text-gray-400 leading-relaxed">
-                            Disfruta de la mejor estabilidad y rendimiento en Minecraft Bedrock. Sigue los pasos para conectarte a nuestra comunidad.
-                        </p>
-                        
-                        <div className="bg-black/60 p-8 rounded-3xl border border-white/5">
-                            <p className="text-green-500 font-bold mb-4 uppercase tracking-widest text-xs">Código de Invitación</p>
-                            <div className="flex flex-col gap-4">
-                                <span className="text-2xl md:text-4xl font-mono text-white font-black tracking-widest bg-green-500/10 px-6 py-4 rounded-xl border border-green-500/20 text-center break-all shadow-inner">
-                                    [TU_CÓDIGO_REAL_AQUÍ]
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                            {[
-                              "Abre Minecraft & Jugar",
-                              "Ve a Pestaña Amigos",
-                              "Unirse a Realm",
-                              "Pega el código de arriba"
-                            ].map((step, idx) => (
-                              <div key={idx} className="flex items-center gap-3 text-gray-400 bg-white/5 p-4 rounded-xl border border-white/5">
-                                <span className="w-6 h-6 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-bold shrink-0 text-xs">{idx + 1}</span>
-                                <span className="font-medium text-sm">{step}</span>
-                              </div>
-                            ))}
-                        </div>
+                <div className="relative z-10 space-y-10 py-10">
+                    <div className="w-24 h-24 bg-green-500/10 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-green-500/20">
+                        <span className="text-5xl">🛠️</span>
                     </div>
-                    
-                    <div className="rounded-3xl overflow-hidden border border-white/10 shadow-xl relative group h-full min-h-[300px]">
-                        <img 
-                            src="https://media.craiyon.com/2025-07-31/TQwLGV13SNC28-FRuyHsEw.webp" 
-                            className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-[3s]"
-                            alt="Preview"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    <h2 className="text-4xl md:text-7xl font-epic-title font-bold text-green-500 py-4">
+                        PRÓXIMAMENTE DISPONIBLE
+                    </h2>
+                    <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-pixel uppercase tracking-widest">
+                        El Realm se encuentra actualmente en mantenimiento para aplicar nuevas actualizaciones y mods. Vuelve pronto para la apertura oficial.
+                    </p>
+                    <div className="pt-10">
+                        <a 
+                            href={DISCORD_LINK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="minecraft-btn-modern px-12 py-5 text-xl"
+                        >
+                            NOTIFICACIONES EN DISCORD
+                        </a>
                     </div>
                 </div>
              </div>
@@ -163,8 +143,8 @@ const App: React.FC = () => {
       case Page.SHOP:
         return (
           <div className="pt-40 pb-32 px-6 max-w-7xl mx-auto">
-            <div className="text-center mb-24 max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-7xl font-pixel font-bold text-white mb-6 uppercase text-glow-green">KITS EXCLUSIVOS</h2>
+            <div className="text-center mb-24 max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-7xl font-epic-title font-bold text-green-500 mb-8 py-6">KITS EXCLUSIVOS</h2>
               <div className="bg-green-500/5 p-6 rounded-[2rem] border border-green-500/10">
                   <p className="text-lg text-green-300 font-medium tracking-wide">Precios en EUR. Tu apoyo ayuda a mantener el Realm activo.</p>
               </div>
@@ -190,20 +170,56 @@ const App: React.FC = () => {
 
       case Page.RULES:
         return (
-          <div className="pt-40 pb-32 px-6 max-w-4xl mx-auto">
-             <div className="space-y-16">
-                <div className="text-center">
-                    <h2 className="text-4xl md:text-7xl font-pixel font-bold text-red-500 mb-6 uppercase tracking-widest">REGLAMENTO</h2>
-                    <p className="text-gray-500 text-xl font-medium italic">Reglas claras para una comunidad sana.</p>
+          <div className="pt-40 pb-40 px-6 relative">
+             <div className="max-w-4xl mx-auto">
+                {/* Header Section con Banner Oscuro */}
+                <div className="relative mb-24 py-16 px-8 rounded-[3rem] bg-[#0d0d0d]/80 border-4 border-red-900/40 shadow-2xl backdrop-blur-md overflow-hidden text-center">
+                    <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent pointer-events-none"></div>
+                    <div className="relative z-10">
+                        <h2 className="text-4xl md:text-8xl font-epic-title font-bold text-red-500 mb-6 py-2" style={{ textShadow: '6px 6px 0px rgba(0,0,0,0.8)' }}>
+                            REGLAMENTO
+                        </h2>
+                        <div className="h-1.5 w-32 bg-red-600 mx-auto rounded-full mb-6"></div>
+                        <p className="text-gray-400 text-lg md:text-xl font-pixel uppercase tracking-widest max-w-xl mx-auto">
+                            Normas obligatorias para garantizar la supervivencia y el respeto en el Realm.
+                        </p>
+                    </div>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-4">
+                {/* Listado de Reglas en Cards Estilo Panel */}
+                <div className="grid grid-cols-1 gap-6">
                     {RULES.map((rule) => (
-                        <div key={rule.id} className="p-8 rounded-2xl bg-[#0d0d0d] border border-white/5 flex gap-8 hover:bg-white/[0.02] transition-all group items-center">
-                            <div className="text-3xl font-pixel text-red-900 group-hover:text-red-500 font-bold shrink-0 transition-colors">0{rule.id}</div>
-                            <p className="text-xl text-gray-300 font-medium">{rule.text}</p>
+                        <div 
+                          key={rule.id} 
+                          className="group relative p-8 rounded-2xl bg-[#0a0a0a] border-2 border-red-900/20 flex flex-col md:flex-row gap-8 items-center transition-all duration-300 hover:bg-[#111] hover:border-red-500/40 hover:-translate-y-1 shadow-lg"
+                        >
+                            {/* Número de Regla con Estilo Pixelado */}
+                            <div className="shrink-0 flex items-center justify-center w-20 h-20 bg-red-500/10 rounded-xl border-2 border-red-500/20 group-hover:bg-red-500/20 group-hover:scale-110 transition-all duration-500">
+                                <span className="text-3xl font-pixel text-red-500 font-black">
+                                    {rule.id < 10 ? `0${rule.id}` : rule.id}
+                                </span>
+                            </div>
+
+                            {/* Texto de la Regla */}
+                            <div className="flex-grow">
+                                <p className="text-xl md:text-2xl text-white font-medium leading-relaxed group-hover:text-red-100 transition-colors">
+                                    {rule.text}
+                                </p>
+                            </div>
+
+                            {/* Indicador de Status/Decoración */}
+                            <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
+                            </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Footer de la sección */}
+                <div className="mt-16 text-center">
+                    <p className="text-gray-500 font-pixel uppercase tracking-widest text-sm bg-black/40 py-4 px-8 rounded-full border border-white/5 inline-block">
+                        El incumplimiento de estas normas resultará en ban inmediato.
+                    </p>
                 </div>
              </div>
           </div>
@@ -212,7 +228,7 @@ const App: React.FC = () => {
       case Page.STAFF:
         return (
           <div className="pt-40 pb-32 px-6 max-w-7xl mx-auto text-center">
-            <h2 className="text-4xl md:text-7xl font-pixel font-bold text-blue-500 mb-24 uppercase tracking-widest">EL EQUIPO</h2>
+            <h2 className="text-4xl md:text-7xl font-epic-title font-bold text-blue-500 mb-24 py-6" style={{ textShadow: '4px 4px 0px rgba(30, 58, 138, 0.9)' }}>EL EQUIPO</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
                 <div className="bg-[#0d0d0d] p-12 rounded-[2.5rem] border border-blue-500/20 hover:border-blue-500/40 transition-all group relative">
                     <div className="w-32 h-32 bg-blue-500/10 rounded-2xl mx-auto mb-8 flex items-center justify-center border border-blue-500/20 group-hover:scale-105 transition-transform">
